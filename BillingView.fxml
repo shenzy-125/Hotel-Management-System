@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import java.lang.*?>
+
+<!--
+    Billing View — Designed with Scene Builder
+    Controller: com.raahul.hms.controller.BillingController
+-->
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.raahul.hms.controller.BillingController"
+      spacing="20" alignment="TOP_LEFT">
+
+    <padding>
+        <Insets top="5" right="5" bottom="5" left="5"/>
+    </padding>
+
+    <!-- Page Heading -->
+    <Label text="Billing &amp; Invoices" styleClass="view-heading"/>
+
+    <!-- Revenue Stats Row -->
+    <HBox fx:id="revenueRow" spacing="20" alignment="CENTER_LEFT"/>
+
+    <!-- Toolbar -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="checkoutBtn" text="💰  Checkout &amp; Generate Bill" onAction="#handleCheckout">
+            <styleClass>
+                <String fx:value="action-btn"/>
+                <String fx:value="action-btn-success"/>
+            </styleClass>
+        </Button>
+
+        <Button fx:id="viewInvoiceBtn" text="🧾  View Invoice" onAction="#handleViewInvoice">
+            <styleClass>
+                <String fx:value="action-btn"/>
+                <String fx:value="action-btn-info"/>
+            </styleClass>
+        </Button>
+
+        <Button fx:id="resetRevenueBtn" text="🗑  Reset Revenue" onAction="#handleResetRevenue">
+            <styleClass>
+                <String fx:value="action-btn"/>
+                <String fx:value="action-btn-danger"/>
+            </styleClass>
+        </Button>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <TextField fx:id="searchField" promptText="🔍 Search bills..." styleClass="search-field"
+                   prefWidth="220"/>
+    </HBox>
+
+    <!-- Bills Table -->
+    <TableView fx:id="billsTable" VBox.vgrow="ALWAYS" styleClass="data-table">
+        <columns>
+            <TableColumn fx:id="billIdCol" text="Bill #" prefWidth="70"/>
+            <TableColumn fx:id="customerCol" text="Customer" prefWidth="160"/>
+            <TableColumn fx:id="roomCol" text="Room" prefWidth="80"/>
+            <TableColumn fx:id="roomTypeCol" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="checkInCol" text="Check-in" prefWidth="110"/>
+            <TableColumn fx:id="checkOutCol" text="Check-out" prefWidth="110"/>
+            <TableColumn fx:id="nightsCol" text="Nights" prefWidth="70"/>
+            <TableColumn fx:id="totalCol" text="Total (₹)" prefWidth="120"/>
+        </columns>
+    </TableView>
+</VBox>

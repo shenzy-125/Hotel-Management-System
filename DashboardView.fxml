@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+    Dashboard View — Designed with Scene Builder
+    Controller: com.raahul.hms.controller.DashboardController
+-->
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.raahul.hms.controller.DashboardController"
+            fitToWidth="true" styleClass="content-scroll">
+
+    <VBox spacing="25" alignment="TOP_LEFT">
+        <padding>
+            <Insets top="5" right="5" bottom="5" left="5"/>
+        </padding>
+
+        <!-- Page Heading -->
+        <Label text="Dashboard Overview" styleClass="view-heading"/>
+
+        <!-- Statistics Cards Row -->
+        <HBox fx:id="statsRow" spacing="20" alignment="CENTER_LEFT"/>
+
+        <!-- Quick Actions Section -->
+        <Label text="Quick Actions" styleClass="section-label"/>
+
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Button fx:id="addRoomBtn" text="➕  Add New Room" onAction="#handleAddRoom">
+                <styleClass>
+                    <String fx:value="action-btn"/>
+                    <String fx:value="action-btn-primary"/>
+                </styleClass>
+            </Button>
+
+            <Button fx:id="bookRoomBtn" text="📝  Book a Room" onAction="#handleBookRoom">
+                <styleClass>
+                    <String fx:value="action-btn"/>
+                    <String fx:value="action-btn-success"/>
+                </styleClass>
+            </Button>
+
+            <Button fx:id="checkoutBtn" text="💰  Checkout" onAction="#handleCheckout">
+                <styleClass>
+                    <String fx:value="action-btn"/>
+                    <String fx:value="action-btn-info"/>
+                </styleClass>
+            </Button>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="refreshBtn" text="🔄  Refresh" onAction="#handleRefresh">
+                <styleClass>
+                    <String fx:value="action-btn"/>
+                    <String fx:value="action-btn-primary"/>
+                </styleClass>
+            </Button>
+        </HBox>
+
+        <!-- Recent Guests Section -->
+        <Label text="Recent Guests" styleClass="section-label"/>
+        <VBox fx:id="recentList" spacing="8" styleClass="recent-list"/>
+    </VBox>
+</ScrollPane>
